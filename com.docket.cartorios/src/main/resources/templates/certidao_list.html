@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Docket - Certidões</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="alert alert-success">
+    <strong>Docket - Sistema de Cartórios</strong> 
+</div>
+<h2 style="text-align: center; margin-bottom: 5px;">Certidões</h2><br>
+  
+        <div class="container" style="text-align: left; margin-bottom: 5px;" th:each="cartorio : ${cartorios}">
+        	<h3><label>Nome do Cartório:</label></h3><br>
+            <h5><label th:text="${cartorio.nome}"></label></h5><br>
+            <h3><label>Endereço:</label></h3><br>
+            <h5><label th:text="${cartorio.endereco}"></label></h5><br>
+        
+  
+<div class="container">
+    <div style="text-align: right; margin-bottom: 5px;">
+        <a th:href="@{/certidao/add/{id}(id=${cartorio.id})}" class="btn btn-success" role="button">Adicionar Certidão</a>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="certidao : ${certidaos}">
+            <td th:text="${certidao.id}"></td>
+            <td th:text="${certidao.nome}"></td>
+            <td>
+            <a th:href="@{/certidao/edit/{id}(id=${certidao.id})}" class="btn btn-success" role="button">Update</a>
+            <a th:href="@{/certidao/delete/{id}(id=${certidao.id})}" class="btn btn-danger" role="button">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+      
+    </table>
+    
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Docket - Certidões</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="alert alert-success">
+    <strong>Docket - Sistema de Cartórios</strong> 
+</div>
+<div class="container">
+    <h5>Adicionar ou Editar</h5>
+    <form action="#" th:action="@{/certidao/addEdit}" method="post" th:object="${certidao}">
+        Nome:<br/>
+        <input type="text" class="form-control" id="nome" th:field="*{nome}" placeholder="Nome da Certidão"/>
+        <br/>
+        <input type="hidden" class="form-control" id="cartorio_id" th:field="*{cartorio.id}" />
+        <br/>
+        <input type="hidden" id="id" th:field="*{id}">
+        <br/>
+        <button type="submit" class="btn btn-info">Salvar</button>
+    </form>
+</div>
+</body>
+</html>
